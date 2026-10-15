@@ -1,0 +1,64 @@
+{
+	"name": "n8n-nodes-fxmacrodata",
+	"version": "0.2.0",
+	"description": "n8n nodes for FXMacroData: official central-bank and statistics-agency releases, economic calendars, FX rates, COT positioning and commodities for 22 currencies, plus a trigger for new releases.",
+	"license": "MIT",
+	"homepage": "https://fxmacrodata.com/?utm_source=npm&utm_medium=referral&utm_campaign=n8n-nodes-fxmacrodata&utm_content=package",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"fxmacrodata",
+		"forex",
+		"macroeconomics",
+		"economic-calendar",
+		"central-bank",
+		"cpi",
+		"interest-rates",
+		"cot"
+	],
+	"author": {
+		"name": "FXMacroData",
+		"email": "info@fxmacrodata.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/fxmacrodata/n8n-nodes-fxmacrodata.git"
+	},
+	"bugs": {
+		"url": "https://github.com/fxmacrodata/n8n-nodes-fxmacrodata/issues"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"test": "node --test test/nodes.test.js",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/FxMacroDataApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/FxMacroData/FxMacroData.node.js",
+			"dist/nodes/FxMacroDataTrigger/FxMacroDataTrigger.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "0.51.0",
+		"eslint": "9.39.4",
+		"prettier": "3.8.3",
+		"release-it": "20.2.0",
+		"typescript": "5.9.3"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}

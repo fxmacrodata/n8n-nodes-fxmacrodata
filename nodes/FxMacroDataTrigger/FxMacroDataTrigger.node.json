@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-fxmacrodata.fxMacroDataTrigger",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Finance & Accounting", "Analytics"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/fxmacrodata/n8n-nodes-fxmacrodata?tab=readme-ov-file#credentials"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/fxmacrodata/n8n-nodes-fxmacrodata?tab=readme-ov-file"
+			}
+		]
+	}
+}
