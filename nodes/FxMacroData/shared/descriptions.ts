@@ -98,7 +98,6 @@ const dateFields = (resource: string, operation: string[]): INodeProperties[] =>
 const paginationFields = (
 	resource: string,
 	operation: string[],
-	maxPage: number,
 ): INodeProperties[] => [
 	{
 		displayName: 'Return All',
@@ -117,7 +116,7 @@ const paginationFields = (
 		displayOptions: {
 			show: { resource: [resource], operation, returnAll: [false] },
 		},
-		description: `Max number of results to return. Requests are paged ${maxPage} rows at a time.`,
+		description: 'Max number of results to return',
 	},
 ];
 
@@ -149,8 +148,8 @@ export const resourceField: INodeProperties = {
 	noDataExpression: true,
 	options: [
 		{ name: 'Announcement', value: 'announcement' },
-		{ name: 'COT Positioning', value: 'cot' },
 		{ name: 'Commodity', value: 'commodity' },
+		{ name: 'COT Positioning', value: 'cot' },
 		{ name: 'Data Catalogue', value: 'catalogue' },
 		{ name: 'Economic Calendar', value: 'calendar' },
 		{ name: 'FX Rate', value: 'forex' },
@@ -335,7 +334,7 @@ export const parameterFields: INodeProperties[] = [
 			'Indicator to fetch, such as inflation, policy_rate or non_farm_payrolls. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
 	},
 	...dateFields('announcement', ['getHistory']),
-	...paginationFields('announcement', ['getHistory'], 100),
+	...paginationFields('announcement', ['getHistory']),
 	outputField('announcement', ['getHistory', 'getLatest']),
 
 	// Calendar
@@ -403,7 +402,7 @@ export const parameterFields: INodeProperties[] = [
 		displayOptions: show('forex', ['getRates']),
 	},
 	...dateFields('forex', ['getRates']),
-	...paginationFields('forex', ['getRates'], 100),
+	...paginationFields('forex', ['getRates']),
 	outputField('forex', ['getRates']),
 
 	// COT
@@ -418,7 +417,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'CFTC report family',
 	},
 	...dateFields('cot', ['getReports']),
-	...paginationFields('cot', ['getReports'], 100),
+	...paginationFields('cot', ['getReports']),
 	outputField('cot', ['getReports']),
 
 	// Commodities
@@ -432,7 +431,7 @@ export const parameterFields: INodeProperties[] = [
 		displayOptions: show('commodity', ['getHistory']),
 	},
 	...dateFields('commodity', ['getHistory']),
-	...paginationFields('commodity', ['getHistory'], 100),
+	...paginationFields('commodity', ['getHistory']),
 	outputField('commodity', ['getHistory', 'getLatest']),
 
 	// Catalogue
@@ -441,11 +440,11 @@ export const parameterFields: INodeProperties[] = [
 
 	// Press releases
 	currencyField('pressRelease', ['getMany']),
-	...paginationFields('pressRelease', ['getMany'], 50),
+	...paginationFields('pressRelease', ['getMany']),
 	outputField('pressRelease', ['getMany']),
 
 	// Risk sentiment
 	...dateFields('riskSentiment', ['getHistory']),
-	...paginationFields('riskSentiment', ['getHistory'], 100),
+	...paginationFields('riskSentiment', ['getHistory']),
 	outputField('riskSentiment', ['getHistory']),
 ];
